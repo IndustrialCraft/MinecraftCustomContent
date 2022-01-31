@@ -1,6 +1,9 @@
 package com.github.industrialcraft.minecraftcustomcontent;
 
 import com.github.industrialcraft.minecraftcustomcontent.commands.GiveCustomItemCommand;
+import com.github.industrialcraft.minecraftcustomcontent.commands.test.TestFlightCommand;
+import com.github.industrialcraft.minecraftcustomcontent.flightManager.FlightManager;
+import com.github.industrialcraft.minecraftcustomcontent.items.CraftingEvent;
 import com.github.industrialcraft.minecraftcustomcontent.items.ItemRegistry;
 import com.github.industrialcraft.minecraftcustomcontent.items.events.ItemEvents;
 import com.github.industrialcraft.minecraftcustomcontent.items.test.TestBeerItem;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 public final class CustomContentMain extends JavaPlugin {
     ItemRegistry itemRegistry;
     CCKeys keys;
+    FlightManager flightManager;
     @Override
     public void onEnable() {
         keys = new CCKeys(this);
@@ -23,14 +27,18 @@ public final class CustomContentMain extends JavaPlugin {
         config.options().copyDefaults(true);
         itemRegistry = new ItemRegistry(config);
 
-
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ItemEvents(), this);
         pm.registerEvents(new CraftingEvent(), this);
 
+        flightManager = new FlightManager(this);
+        pm.registerEvents(flightManager, this);
+
         //TEST
         new TestLightningStick(this);
         new TestBeerItem(this);
+
+        new TestFlightCommand(this);
         //-TEST
 
         new GiveCustomItemCommand(this);
@@ -41,7 +49,9 @@ public final class CustomContentMain extends JavaPlugin {
         saveConfig();
     }
 
-
+    public static FlightManager getFlightManager() {
+        return getInstance().flightManager;
+    }
     public static ItemRegistry getItemRegistry() {
         return getInstance().itemRegistry;
     }

@@ -7,6 +7,7 @@ API for adding custom content to minecraft
 - [ ] Custom Blocks API
 - [ ] Custom HUD API
 - [ ] Resourcepack generator
+- [x] Flight manager
 
 ## Custom Items
 ```java

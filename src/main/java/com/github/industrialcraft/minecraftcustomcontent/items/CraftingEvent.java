@@ -1,4 +1,4 @@
-package com.github.industrialcraft.minecraftcustomcontent;
+package com.github.industrialcraft.minecraftcustomcontent.items;
 
 import com.github.industrialcraft.minecraftcustomcontent.items.CustomItem;
 import org.bukkit.event.EventHandler;

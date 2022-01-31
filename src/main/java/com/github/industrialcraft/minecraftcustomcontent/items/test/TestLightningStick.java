@@ -18,7 +18,7 @@ public class TestLightningStick extends CustomItem implements IInteractItemEvent
 
     @Override
     public ItemStack create(int amount) {
-        return _create(amount, Material.STICK, "Lightning rod", "strikes lightning bolt on click", "3 uses");
+        return _create(amount, Material.STICK, "Lightning rod", "strikes lightning bolt on click");
     }
 
     @Override

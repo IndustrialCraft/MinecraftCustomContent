@@ -9,3 +9,6 @@ commands:
   givecustom:
     description: Give custom item
     usage: /<command> <itemid>
+  testflight:
+    description: Test flight
+    usage: /<command>
