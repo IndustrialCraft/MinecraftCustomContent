@@ -1,0 +1,11 @@
+name: CustomContent
+version: '${project.version}'
+main: com.github.industrialcraft.minecraftcustomcontent.CustomContentMain
+api-version: 1.18
+load: STARTUP
+authors: [ mmm1245 ]
+description: Add custom items and blocks to minecraft
+commands:
+  givecustom:
+    description: Give custom item
+    usage: /<command> <itemid>
