@@ -22,6 +22,10 @@ public class GiveCustomItemCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player){
+            if(!sender.isOp()){
+                sender.sendMessage(ChatColor.RED + "this command is op-only");
+                return true;
+            }
             if(args.length < 1 || args.length > 2){
                 sender.sendMessage(ChatColor.RED + "usage: /givecustom <item> [count]");
                 return true;
